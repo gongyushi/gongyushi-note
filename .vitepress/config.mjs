@@ -1,42 +1,125 @@
-import { defineConfig } from "vitepress";
-import { set_sidebar } from "../utils/auto-gen-sidebar.mjs"; // 改成自己的路径
+import {
+  defineConfig
+} from "vitepress";
+import {
+  set_sidebar
+} from "../utils/auto-gen-sidebar.mjs"; // 改成自己的路径
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "公羽氏",
-  head: [["link", { rel: "icon", href: "/icon.svg" }]],
+  head: [
+    ["link", {
+      rel: "icon",
+      href: "/icon.svg"
+    }]
+  ],
   description: "A VitePress Site",
   base: "/gongyushi-note/",
   themeConfig: {
     outlineTitle: "文章目录",
     outline: [2, 6],
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "首页", link: "/" },
-      { text: "前端", link: "/pages/vue3/index" },
-      { text: "演示", link: "/markdown-examples" },
-    ],
-    logo: "/icon.svg",
-    sidebar: [
+    nav: [{
+        text: "首页",
+        link: "/"
+      },
       {
         text: "前端",
-        items: [
-          { text: "vue3", link: "/pages/vue3/index" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+        items: [{
+            text: "vue3.0",
+            link: "/frontend/vue3.0",
+          },
+          {
+            text: "vue2.0",
+            link: "/frontend/vue2.0"
+          },
+          {
+            text: "基础知识",
+            link: "/frontend/web-basic"
+          },
         ],
       },
       {
-        text: "演示",
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
+        text: "博客",
+        link: "/articles/组件库环境搭建"
       },
+      {
+        text: "Python",
+        link: "/python/"
+      },
+      
+      {
+        text: 'gitee',
+        link: 'https://gitee.com/zhengxinonly'
+      }, // 外链
     ],
+    logo: "/icon.svg",
+    sidebar: {
+      "/frontend/web-basic/": [{
+          text: "前端",
+          items: [{
+              text: "前端基础",
+              link: "/frontend/web-basic/index.md",
+            },
+            {
+              text: "HTML",
+              link: "/frontend/HTML"
+            },
+            {
+              text: "CSS",
+              link: "/frontend/CSS"
+            },
+          ],
+        },
+        {
+          text: "演示",
+          items: [{
+              text: "Markdown Examples",
+              link: "/markdown-examples"
+            },
+            {
+              text: "Runtime API Examples",
+              link: "/api-examples"
+            },
+          ],
+        },
+      ],
+      "/frontend/vue3.0/": [{
+          text: "前端",
+          items: [{
+              text: "vue3.0基础知识",
+              link: "/frontend/vue3.0/index.md",
+            },
+            {
+              text: "vite",
+              link: "/frontend/HTML"
+            },
+            {
+              text: "pinia",
+              link: "/frontend/CSS"
+            },
+          ],
+        },
+        {
+          text: "演示",
+          items: [{
+              text: "Markdown Examples",
+              link: "/markdown-examples"
+            },
+            {
+              text: "Runtime API Examples",
+              link: "/api-examples"
+            },
+          ],
+        },
+      ],
+    },
     // sidebar: { "/pages": set_sidebar("pages") },
     // sidebar: true,
-    socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
-    ],
+    socialLinks: [{
+      icon: "github",
+      link: "https://github.com/vuejs/vitepress"
+    }, ],
     footer: {
       copyright: "Copyright@ 2018 Albert weng",
     },
